@@ -1,15 +1,21 @@
-# Fawn Tracker
+# Fawn Tracker Extension for Silly Tavern
 
-A specialized tracking tool replacing the previous system. This tool tracks character status, relationships, and "fawn whispers".
+A specialized tracking tool that displays character status, relationships, and "fawn whispers".
 
-## Sections
+## Installation
 
-1. **Info Block**: Character details, environment, and current thoughts.
-2. **Matrix**: Relationship stats, feelings, progress, and deep analysis.
-3. **Fawn's Whisper**: Meta-commentary, mood, and advice.
+1. Navigate to your Silly Tavern extensions directory:
+   ```bash
+   cd SillyTavern/public/scripts/extensions
+   ```
+2. Clone this repository:
+   ```bash
+   git clone https://github.com/your-repo/fawn-tracker.git
+   ```
+3. Restart Silly Tavern or reload the page.
 
-## Usage
+## Features
 
-```bash
-npm start
-```
+- **Info Block**: Character details, environment, and current thoughts.
+- **Matrix**: Relationship stats, feelings, progress, and deep analysis.
+- **Fawn's Whisper**: Meta-commentary, mood, and advice.
