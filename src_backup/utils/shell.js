@@ -143,6 +143,16 @@ function validateApiKey(apiKey) {
     return { valid: false, error: 'API key contains spaces' };
   }
 
+  // Strict validation to prevent shell injection
+  // Allow alphanumeric, underscores, hyphens, dots, plus, slash, and equals (Base64 chars)
+  // If it starts with Bearer, check the rest
+  const keyPart = apiKey.startsWith('Bearer ') ? apiKey.slice(7) : apiKey;
+  const validPattern = /^[a-zA-Z0-9_\-\.\+\/=]+$/;
+
+  if (!validPattern.test(keyPart)) {
+    return { valid: false, error: 'API key contains invalid characters. Only letters, numbers, -, _, ., +, /, and = are allowed.' };
+  }
+
   return { valid: true };
 }
 

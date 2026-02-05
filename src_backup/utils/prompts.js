@@ -2,6 +2,7 @@
 import { select, input, confirm, password } from '@inquirer/prompts';
 import chalk from 'chalk';
 import { TOOLS, SETUP_LEVELS } from '../constants.js';
+import { validateApiKey } from './shell.js';
 
 /**
  * Prompt the user to choose which tool(s) to configure.
@@ -117,11 +118,9 @@ export async function promptApiKey(toolName = '') {
     message: `Enter your MegaLLM API key${toolName ? ` for ${toolName}` : ''}:`,
     mask: '*',
     validate: (input) => {
-      if (!input || input.trim().length === 0) {
-        return 'API key is required';
-      }
-      if (input.length < 20) {
-        return 'API key seems too short. Please check and try again.';
+      const result = validateApiKey(input);
+      if (!result.valid) {
+        return result.error;
       }
       return true;
     }

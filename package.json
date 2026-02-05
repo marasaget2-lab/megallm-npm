@@ -1,50 +1,24 @@
 {
-  "name": "megallm",
-  "version": "2.5.9",
-  "description": "Setup tool for configuring Claude Code and Codex to use MegaLLM AI service",
-  "main": "src/cli.js",
+  "name": "fawn-tracker",
+  "version": "1.0.0",
+  "description": "Interactive Fawn Tracker for Roleplay/Story Context",
+  "main": "src/tracker.js",
   "type": "module",
-  "bin": {
-    "megallm": "./bin/megallm.js"
-  },
-  "files": [
-    "bin/",
-    "src/",
-    "README.md",
-    "LICENSE"
-  ],
   "scripts": {
-    "start": "node bin/megallm.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/tracker.js"
   },
   "keywords": [
-    "megallm",
-    "claude",
-    "codex",
-    "ai",
-    "setup",
-    "cli",
-    "configuration"
+    "fawn",
+    "tracker",
+    "rpg",
+    "roleplay"
   ],
-  "author": "MegaLLM",
+  "author": "",
   "license": "MIT",
   "dependencies": {
-    "@iarna/toml": "^2.2.5",
-    "@inquirer/prompts": "^3.3.0",
-    "chalk": "^5.3.0",
-    "figlet": "^1.7.0",
-    "fs-extra": "^11.2.0",
-    "ora": "^7.0.1"
+    "chalk": "^5.3.0"
   },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Megallm/megallm-npm.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Megallm/megallm-npm/issues"
-  },
-  "homepage": "https://github.com/priyanshu/megallm-claude-code#readme"
+  }
 }
