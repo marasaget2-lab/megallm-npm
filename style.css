@@ -19,6 +19,9 @@
     flex-direction: column;
     overflow-y: auto;
     font-size: 14px;
+    z-index: 2100; /* Ensure it's above other drawers/overlays */
+    box-shadow: -4px 0 10px rgba(0,0,0,0.7); /* Better shadow */
+    max-height: 100vh;
 }
 
 .fawn-header {
@@ -30,7 +33,7 @@
     border-bottom: 1px solid var(--fawn-border);
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 2101;
 }
 
 .fawn-header h3 {
@@ -359,3 +362,27 @@
     border: 1px solid rgba(56, 189, 248, 0.2);
 }
 .advice .w-label { color: #38bdf8; }
+
+/* Make sure the toggle button is always visible */
+#fawn-tracker-toggle {
+    z-index: 2102;
+    transition: transform 0.2s;
+}
+#fawn-tracker-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Add custom scrollbar for better integration */
+.fawn-tracker-drawer::-webkit-scrollbar {
+    width: 8px;
+}
+.fawn-tracker-drawer::-webkit-scrollbar-track {
+    background: #1a1b1e;
+}
+.fawn-tracker-drawer::-webkit-scrollbar-thumb {
+    background: #373a40;
+    border-radius: 4px;
+}
+.fawn-tracker-drawer::-webkit-scrollbar-thumb:hover {
+    background: #4ade80;
+}
