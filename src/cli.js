@@ -3,6 +3,7 @@
 // Main CLI for MegaLLM Setup
 import chalk from 'chalk';
 import figlet from 'figlet';
+import ora from 'ora';
 import { detectOS } from './detectors/os.js';
 import { getInstalledTools, checkToolsStatus, isClaudeCodeInstalled, isCodexInstalled, isOpenCodeInstalled } from './detectors/tools.js';
 import {
@@ -84,42 +85,44 @@ async function main() {
 
   try {
     // Step 1: Detect OS
-    console.log(chalk.cyan('\n🔍 Detecting system information...'));
+    const osSpinner = ora('Detecting system information...').start();
     const osInfo = detectOS();
-    console.log(chalk.green(`✓ OS: ${osInfo.type} (${osInfo.platform})`));
-    console.log(chalk.green(`✓ Shell: ${osInfo.shell}`));
+    osSpinner.succeed('System information detected');
+    console.log(chalk.gray(`  • OS: ${osInfo.type} (${osInfo.platform})`));
+    console.log(chalk.gray(`  • Shell: ${osInfo.shell}`));
 
     // Step 2: Check installed tools
-    console.log(chalk.cyan('\n🔍 Checking installed tools...'));
+    const toolSpinner = ora('Checking installed tools...').start();
     let toolsStatus = checkToolsStatus();
     let installedTools = getInstalledTools();
+    toolSpinner.succeed('Tools check complete');
 
     // Show current status
     if (toolsStatus.claude.installed) {
-      console.log(chalk.green(`✓ Claude Code detected`));
+      console.log(chalk.green(`  ✓ Claude Code detected`));
       if (toolsStatus.claude.configPath) {
-        console.log(chalk.gray(`  Config: ${toolsStatus.claude.configPath}`));
+        console.log(chalk.gray(`    Config: ${toolsStatus.claude.configPath}`));
       }
     } else {
-      console.log(chalk.yellow(`✗ Claude Code not found`));
+      console.log(chalk.yellow(`  ✗ Claude Code not found`));
     }
 
     if (toolsStatus.codex.installed) {
-      console.log(chalk.green(`✓ Codex detected`));
+      console.log(chalk.green(`  ✓ Codex detected`));
       if (toolsStatus.codex.configPath) {
-        console.log(chalk.gray(`  Config: ${toolsStatus.codex.configPath}`));
+        console.log(chalk.gray(`    Config: ${toolsStatus.codex.configPath}`));
       }
     } else {
-      console.log(chalk.yellow(`✗ Codex not found`));
+      console.log(chalk.yellow(`  ✗ Codex not found`));
     }
 
     if (toolsStatus.opencode.installed) {
-      console.log(chalk.green(`✓ OpenCode detected`));
+      console.log(chalk.green(`  ✓ OpenCode detected`));
       if (toolsStatus.opencode.configPath) {
-        console.log(chalk.gray(`  Config: ${toolsStatus.opencode.configPath}`));
+        console.log(chalk.gray(`    Config: ${toolsStatus.opencode.configPath}`));
       }
     } else {
-      console.log(chalk.yellow(`✗ OpenCode not found`));
+      console.log(chalk.yellow(`  ✗ OpenCode not found`));
     }
 
     // Check if we need to offer installation

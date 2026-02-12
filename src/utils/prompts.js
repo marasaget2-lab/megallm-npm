@@ -20,10 +20,10 @@ export async function promptToolSelection(availableTools) {
     const tool = await select({
       message: 'Which tool would you like to configure?',
       choices: [
-        { name: 'Claude Code', value: 'claude' },
-        { name: 'Codex', value: 'codex' },
-        { name: 'Open Code', value: 'opencode' },
-        { name: 'All', value: 'all' }
+        { name: 'Claude Code', value: 'claude', description: 'Configure Anthropic\'s Claude Code' },
+        { name: 'Codex', value: 'codex', description: 'Configure OpenAI\'s Codex / Windsurf' },
+        { name: 'Open Code', value: 'opencode', description: 'Configure OpenCode AI' },
+        { name: 'All', value: 'all', description: 'Configure all available tools' }
       ]
     });
 
@@ -32,13 +32,16 @@ export async function promptToolSelection(availableTools) {
 
   const choices = availableTools.map(tool => ({
     name: tool.name,
-    value: tool.key
+    value: tool.key,
+    description: tool.key === 'claude' ? 'Configure Anthropic\'s Claude Code' :
+                 tool.key === 'codex' ? 'Configure OpenAI\'s Codex / Windsurf' :
+                 tool.key === 'opencode' ? 'Configure OpenCode AI' : ''
   }));
 
   if (availableTools.length == 2) {
-    choices.push({ name: 'Configure Both', value: 'both' });
+    choices.push({ name: 'Configure Both', value: 'both', description: 'Configure both tools at once' });
   } else if (availableTools.length == 3) {
-    choices.push({ name: 'Configure All', value: 'all' });
+    choices.push({ name: 'Configure All', value: 'all', description: 'Configure all detected tools' });
   }
 
   const selectedTool = await select({
