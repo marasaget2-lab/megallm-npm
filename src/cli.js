@@ -3,6 +3,7 @@
 // Main CLI for MegaLLM Setup
 import chalk from 'chalk';
 import figlet from 'figlet';
+import ora from 'ora';
 import { detectOS } from './detectors/os.js';
 import { getInstalledTools, checkToolsStatus, isClaudeCodeInstalled, isCodexInstalled, isOpenCodeInstalled } from './detectors/tools.js';
 import {
@@ -90,9 +91,10 @@ async function main() {
     console.log(chalk.green(`✓ Shell: ${osInfo.shell}`));
 
     // Step 2: Check installed tools
-    console.log(chalk.cyan('\n🔍 Checking installed tools...'));
+    const spinner = ora('Checking installed tools...').start();
     let toolsStatus = checkToolsStatus();
-    let installedTools = getInstalledTools();
+    let installedTools = getInstalledTools(toolsStatus);
+    spinner.succeed('System check complete');
 
     // Show current status
     if (toolsStatus.claude.installed) {
@@ -155,7 +157,7 @@ async function main() {
           const installed = await installClaudeCode();
           if (installed) {
             toolsStatus = checkToolsStatus();
-            installedTools = getInstalledTools();
+            installedTools = getInstalledTools(toolsStatus);
           }
         }
 
@@ -163,7 +165,7 @@ async function main() {
           const installed = await installCodex();
           if (installed) {
             toolsStatus = checkToolsStatus();
-            installedTools = getInstalledTools();
+            installedTools = getInstalledTools(toolsStatus);
           }
         }
 
@@ -171,7 +173,7 @@ async function main() {
           const installed = await installOpenCode();
           if (installed) {
             toolsStatus = checkToolsStatus();
-            installedTools = getInstalledTools();
+            installedTools = getInstalledTools(toolsStatus);
           }
         }
 
@@ -239,7 +241,7 @@ async function main() {
           const installed = await installClaudeCode();
           if (installed) {
             toolsStatus = checkToolsStatus();
-            installedTools = getInstalledTools();
+            installedTools = getInstalledTools(toolsStatus);
           }
         }
 
@@ -247,7 +249,7 @@ async function main() {
           const installed = await installCodex();
           if (installed) {
             toolsStatus = checkToolsStatus();
-            installedTools = getInstalledTools();
+            installedTools = getInstalledTools(toolsStatus);
           }
         }
 
@@ -255,7 +257,7 @@ async function main() {
           const installed = await installOpenCode();
           if (installed) {
             toolsStatus = checkToolsStatus();
-            installedTools = getInstalledTools();
+            installedTools = getInstalledTools(toolsStatus);
           }
         }
       }
