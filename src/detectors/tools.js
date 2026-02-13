@@ -205,10 +205,11 @@ function checkToolsStatus() {
 
 /**
  * Builds a list of detected coding tools and their metadata.
+ * @param {Object} [toolsStatus] - Optional pre-calculated status object from checkToolsStatus().
  * @returns {Array<Object>} An array of tool descriptor objects for each detected tool. Each object contains `name` (display name), `key` (identifier) and detector-specific fields such as `installed`, `path`, `configPath`, `cliAvailable`, `configured`, and other flags (e.g., `isWindsurf`) when present.
  */
-function getInstalledTools() {
-  const status = checkToolsStatus();
+function getInstalledTools(toolsStatus = null) {
+  const status = toolsStatus || checkToolsStatus();
   const tools = [];
 
   if (status.claude.installed) {
