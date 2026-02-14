@@ -231,13 +231,13 @@ export async function promptStatuslineSetup() {
   console.log(chalk.cyan('\n🎨 Claude Code Statusline'));
   console.log(chalk.gray('═'.repeat(50)));
   console.log(chalk.white('Enhance your Claude Code terminal with:'));
-  console.log(chalk.gray('  📁 Directory display with ~ abbreviation'));
-  console.log(chalk.gray('  🌿 Git branch information'));
-  console.log(chalk.gray('  🤖 Model info and version'));
-  console.log(chalk.gray('  🧠 Real-time context usage'));
-  console.log(chalk.gray('  💰 Cost tracking and burn rates'));
-  console.log(chalk.gray('  ⌛ Session timer'));
-  console.log(chalk.gray('  📊 Token analytics'));
+  console.log(chalk.cyan('  •') + chalk.white(' 📁 Directory display with ~ abbreviation'));
+  console.log(chalk.cyan('  •') + chalk.white(' 🌿 Git branch information'));
+  console.log(chalk.cyan('  •') + chalk.white(' 🤖 Model info and version'));
+  console.log(chalk.cyan('  •') + chalk.white(' 🧠 Real-time context usage'));
+  console.log(chalk.cyan('  •') + chalk.white(' 💰 Cost tracking and burn rates'));
+  console.log(chalk.cyan('  •') + chalk.white(' ⌛ Session timer'));
+  console.log(chalk.cyan('  •') + chalk.white(' 📊 Token analytics'));
   console.log(chalk.gray('═'.repeat(50)));
 
   const wantsStatusline = await confirm({

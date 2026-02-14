@@ -61,8 +61,8 @@ async function handleStatuslineSetup(toolsStatus) {
         console.log(chalk.yellow('\n⚠ Statusline setup was skipped.'));
       }
     } else {
-      console.log(chalk.gray('\n✓ Skipping statusline setup. You can set it up later with:'));
-      console.log(chalk.gray('  npx @chongdashu/cc-statusline@latest init'));
+      console.log(chalk.cyan('\n✓ Skipping statusline setup. You can set it up later with:'));
+      console.log(chalk.white('  npx @chongdashu/cc-statusline@latest init'));
     }
   } else {
     console.log(chalk.green('\n✓ Claude Code statusline is already configured'));
@@ -178,17 +178,17 @@ async function main() {
         // Final check after installations
         if (!checkToolsStatus().anyInstalled) {
           console.log(chalk.red('\n❌ Installation failed. Please install manually:'));
-          console.log(chalk.gray('  Claude Code: npm install -g @anthropic-ai/claude-code'));
-          console.log(chalk.gray('  Codex: npm install -g @openai/codex'));
-          console.log(chalk.gray('  OpenCode: npm install -g opencode-ai'));
+          console.log(chalk.white('  Claude Code: npm install -g @anthropic-ai/claude-code'));
+          console.log(chalk.white('  Codex: npm install -g @openai/codex'));
+          console.log(chalk.white('  OpenCode: npm install -g opencode-ai'));
           process.exit(1);
         }
       } else {
         console.log(chalk.red('\n❌ No tools available for configuration.'));
-        console.log(chalk.gray('You can install them manually:'));
-        console.log(chalk.gray('  Claude Code: npm install -g @anthropic-ai/claude-code'));
-        console.log(chalk.gray('  Codex: npm install -g @openai/codex'));
-        console.log(chalk.gray('  OpenCode: npm install -g opencode-ai'));
+        console.log(chalk.cyan('You can install them manually:'));
+        console.log(chalk.white('  Claude Code: npm install -g @anthropic-ai/claude-code'));
+        console.log(chalk.white('  Codex: npm install -g @openai/codex'));
+        console.log(chalk.white('  OpenCode: npm install -g opencode-ai'));
         process.exit(1);
       }
     }
@@ -495,8 +495,8 @@ async function main() {
     }
 
     console.log(chalk.cyan('\n📚 Need help?'));
-    console.log(chalk.gray('  • Documentation: https://docs.megallm.io/'));
-    console.log(chalk.gray('  • Support: support@megallm.io'));
+    console.log(chalk.cyan('  • Documentation: https://docs.megallm.io/'));
+    console.log(chalk.cyan('  • Support: support@megallm.io'));
 
     console.log(chalk.cyan('\n✨ Thank you for using MegaLLM!\n'));
 
