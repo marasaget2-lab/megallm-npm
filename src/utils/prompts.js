@@ -30,6 +30,13 @@ export async function promptToolSelection(availableTools) {
     return tool;
   }
 
+  // If only one tool is available, select it automatically
+  if (availableTools.length === 1) {
+    const tool = availableTools[0];
+    console.log(chalk.green(`\n✓ Only ${tool.name} detected. Configuring ${tool.name}...`));
+    return tool.key;
+  }
+
   const choices = availableTools.map(tool => ({
     name: tool.name,
     value: tool.key
