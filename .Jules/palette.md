@@ -1,0 +1,3 @@
+## 2025-05-23 - Explicit vs Vague Success Messages
+**Learning:** Users who just completed a setup wizard often need explicit instructions on what to do next. Telling them to "start as usual" assumes prior knowledge they might not have, especially if they just installed the tool. Providing the exact command to run (e.g., `claude`) reduces friction and cognitive load.
+**Action:** Always provide the exact command to run in success messages, formatted clearly (e.g., bold or code block), rather than generic "start the tool" instructions.

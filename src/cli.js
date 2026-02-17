@@ -481,17 +481,21 @@ async function main() {
 
     if (selectedTool === 'claude' || selectedTool === 'both' || selectedTool === 'all') {
       console.log(chalk.white('  • Claude Code with MegaLLM'));
-      console.log(chalk.gray('    Just start Claude Code as usual'));
+      console.log(chalk.gray('    Run: ') + chalk.bold.white('claude'));
     }
 
     if (selectedTool === 'codex' || selectedTool === 'both' || selectedTool === 'all') {
       console.log(chalk.white('  • Codex with MegaLLM'));
-      console.log(chalk.gray('    Just start Codex/Windsurf as usual'));
+      if (toolsStatus.codex.isWindsurf) {
+        console.log(chalk.gray('    Start ') + chalk.bold.white('Windsurf') + chalk.gray(' to use Codex'));
+      } else {
+        console.log(chalk.gray('    Run: ') + chalk.bold.white('codex'));
+      }
     }
 
     if (selectedTool === 'opencode' || selectedTool === 'all') {
       console.log(chalk.white('  • OpenCode with MegaLLM'));
-      console.log(chalk.gray('    Just start OpenCode as usual'));
+      console.log(chalk.gray('    Run: ') + chalk.bold.white('opencode'));
     }
 
     console.log(chalk.cyan('\n📚 Need help?'));
