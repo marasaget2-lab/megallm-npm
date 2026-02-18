@@ -3,6 +3,7 @@
 // Main CLI for MegaLLM Setup
 import chalk from 'chalk';
 import figlet from 'figlet';
+import ora from 'ora';
 import { detectOS } from './detectors/os.js';
 import { getInstalledTools, checkToolsStatus, isClaudeCodeInstalled, isCodexInstalled, isOpenCodeInstalled } from './detectors/tools.js';
 import {
@@ -84,15 +85,19 @@ async function main() {
 
   try {
     // Step 1: Detect OS
-    console.log(chalk.cyan('\n🔍 Detecting system information...'));
+    console.log('');
+    const osSpinner = ora('Detecting system information...').start();
     const osInfo = detectOS();
-    console.log(chalk.green(`✓ OS: ${osInfo.type} (${osInfo.platform})`));
-    console.log(chalk.green(`✓ Shell: ${osInfo.shell}`));
+    osSpinner.succeed(`System detected: ${osInfo.type} (${osInfo.platform})`);
+    console.log(chalk.gray(`  Shell: ${osInfo.shell}`));
 
     // Step 2: Check installed tools
-    console.log(chalk.cyan('\n🔍 Checking installed tools...'));
+    console.log('');
+    const toolsSpinner = ora('Checking installed tools...').start();
     let toolsStatus = checkToolsStatus();
     let installedTools = getInstalledTools();
+    toolsSpinner.stop();
+    console.log(chalk.cyan('🔍 Installed tools status:'));
 
     // Show current status
     if (toolsStatus.claude.installed) {
@@ -262,9 +267,12 @@ async function main() {
     }
 
     // Step 2.5: Check for existing MegaLLM configuration
-    console.log(chalk.cyan('\n🔍 Checking for existing MegaLLM configuration...'));
+    console.log('');
+    const configSpinner = ora('Checking for existing MegaLLM configuration...').start();
     const existingConfig = await checkExistingConfiguration();
     const envVars = await detectExistingEnvVars();
+    configSpinner.stop();
+    console.log(chalk.cyan('🔍 Configuration status:'));
 
     if (existingConfig.isConfigured && existingConfig.locations.length > 0) {
       // Show detailed information about existing configuration
