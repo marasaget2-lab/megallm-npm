@@ -3,6 +3,7 @@
 // Main CLI for MegaLLM Setup
 import chalk from 'chalk';
 import figlet from 'figlet';
+import ora from 'ora';
 import { detectOS } from './detectors/os.js';
 import { getInstalledTools, checkToolsStatus, isClaudeCodeInstalled, isCodexInstalled, isOpenCodeInstalled } from './detectors/tools.js';
 import {
@@ -84,15 +85,18 @@ async function main() {
 
   try {
     // Step 1: Detect OS
-    console.log(chalk.cyan('\n🔍 Detecting system information...'));
+    const osSpinner = ora('Detecting system information...').start();
     const osInfo = detectOS();
-    console.log(chalk.green(`✓ OS: ${osInfo.type} (${osInfo.platform})`));
-    console.log(chalk.green(`✓ Shell: ${osInfo.shell}`));
+    osSpinner.succeed(chalk.green(`OS: ${osInfo.type} (${osInfo.platform})`));
+    console.log(chalk.green(`  ✓ Shell: ${osInfo.shell}`));
 
     // Step 2: Check installed tools
-    console.log(chalk.cyan('\n🔍 Checking installed tools...'));
+    const toolSpinner = ora('Checking installed tools...').start();
     let toolsStatus = checkToolsStatus();
     let installedTools = getInstalledTools();
+    toolSpinner.stop();
+
+    console.log(chalk.cyan('🔍 Tool Status:'));
 
     // Show current status
     if (toolsStatus.claude.installed) {
