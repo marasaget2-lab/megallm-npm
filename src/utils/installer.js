@@ -1,8 +1,11 @@
 // Tool Installation Module
-import { execSync } from 'child_process';
+import { exec } from 'child_process';
+import { promisify } from 'util';
 import chalk from 'chalk';
 import ora from 'ora';
 import { confirm } from '@inquirer/prompts';
+
+const execPromise = promisify(exec);
 
 async function installClaudeCode() {
   const spinner = ora('Installing Claude Code...').start();
@@ -11,10 +14,7 @@ async function installClaudeCode() {
     spinner.text = 'Installing @anthropic-ai/claude-code globally...';
 
     // Install Claude Code via npm
-    execSync('npm install -g @anthropic-ai/claude-code', {
-      stdio: 'pipe',
-      encoding: 'utf8'
-    });
+    await execPromise('npm install -g @anthropic-ai/claude-code');
 
     spinner.succeed(chalk.green('Claude Code installed successfully!'));
     console.log(chalk.gray('  You can now use: claude'));
@@ -41,10 +41,7 @@ async function installCodex() {
     spinner.text = 'Installing @openai/codex globally...';
 
     // Install Codex via npm
-    execSync('npm install -g @openai/codex', {
-      stdio: 'pipe',
-      encoding: 'utf8'
-    });
+    await execPromise('npm install -g @openai/codex');
 
     spinner.succeed(chalk.green('Codex installed successfully!'));
     console.log(chalk.gray('  You can now use: codex'));
@@ -71,10 +68,7 @@ async function installOpenCode() {
     spinner.text = 'Installing opencode-ai globally...';
 
     // Install OpenCode via npm
-    execSync('npm install -g opencode-ai', {
-      stdio: 'pipe',
-      encoding: 'utf8'
-    });
+    await execPromise('npm install -g opencode-ai');
 
     spinner.succeed(chalk.green('OpenCode installed successfully!'));
     console.log(chalk.gray('  You can now use: opencode'));
