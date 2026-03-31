@@ -1,0 +1,203 @@
+<div id="fawn-tracker-container" class="fawn-tracker-drawer">
+    <div class="fawn-header">
+        <h3>🌿 Fawn Tracker</h3>
+        <div class="fawn-controls">
+            <span id="fawn-close" class="fawn-btn">✕</span>
+        </div>
+    </div>
+
+    <div class="fawn-content">
+        <!-- SECTION 1: INFO BLOCK -->
+        <div class="fawn-section" id="fawn-info-block">
+            <h4 class="fawn-section-title">Info Block</h4>
+            <div class="fawn-grid-characters">
+                <!-- C1 -->
+                <div class="fawn-card character-card">
+                    <div class="fawn-card-header">
+                        <span class="fawn-tag id">C1</span>
+                        <span class="fawn-name">Серафина</span>
+                    </div>
+                    <div class="fawn-card-body">
+                        <div class="fawn-stat"><i class="fa-solid fa-user-md"></i> user-md</div>
+                        <div class="fawn-stat"><i class="fa-solid fa-shirt"></i> черный сарафан</div>
+                        <div class="fawn-stat status-present">присутствует</div>
+                    </div>
+                </div>
+                <!-- C2 -->
+                <div class="fawn-card character-card">
+                    <div class="fawn-card-header">
+                        <span class="fawn-tag id">C2</span>
+                        <span class="fawn-name">Химмель</span>
+                    </div>
+                    <div class="fawn-card-body">
+                        <div class="fawn-stat"><i class="fa-solid fa-user"></i> user</div>
+                        <div class="fawn-stat"><i class="fa-solid fa-bandage"></i> бинты</div>
+                        <div class="fawn-stat status-lying">лежит</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fawn-environment">
+                <div class="env-item"><i class="fa-solid fa-sun"></i> <span>sun | солнечно</span></div>
+                <div class="env-item"><i class="fa-regular fa-clock"></i> <span>09:15</span></div>
+                <div class="env-item"><i class="fa-regular fa-calendar"></i> <span>14 Мая, 1342</span></div>
+                <div class="env-item"><i class="fa-solid fa-leaf"></i> <span>seedling | весна</span></div>
+            </div>
+
+            <div class="fawn-thought-box">
+                <span class="label">thought:</span>
+                <p class="text">Яд выводится, но медленно. Его рефлексы все еще сражаются с лекарством. Нужно снизить уровень адреналина, иначе швы разойдутся.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: MATRIX -->
+        <div class="fawn-section" id="fawn-matrix">
+            <h4 class="fawn-section-title">Matrix</h4>
+
+            <div class="matrix-layout">
+                <div class="matrix-left">
+                    <!-- R1 -->
+                    <div class="fawn-relationship">
+                        <span class="fawn-tag id">R1</span>
+                        <span class="rel-name">Химмель</span>
+                        <div class="rel-bar-container">
+                            <div class="rel-bar" style="width: 10%;"></div>
+                            <span class="rel-val">10%</span>
+                        </div>
+                        <span class="rel-tag">незнакомцы</span>
+                        <span class="rel-status new">new</span>
+                    </div>
+
+                    <!-- Target Profile -->
+                    <div class="fawn-target-profile">
+                        <div class="avatar">🌿</div>
+                        <div class="details">
+                            <div class="name">Серафина</div>
+                            <div class="role">Опекун</div>
+                            <div class="days">дни: 0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="matrix-right">
+                    <!-- Feelings -->
+                    <div class="feelings-list">
+                        <!-- F1 -->
+                        <div class="feeling-item">
+                            <div class="f-icon" style="color: #60a5fa;">🛡️</div>
+                            <div class="f-info">
+                                <div class="f-top">
+                                    <span class="f-name">Забота</span>
+                                    <span class="f-val">65</span>
+                                </div>
+                                <div class="f-bar-bg">
+                                    <div class="f-bar" style="width: 65%; background-color: #60a5fa;"></div>
+                                </div>
+                            </div>
+                            <div class="f-trend">=</div>
+                        </div>
+                        <!-- F2 -->
+                        <div class="feeling-item">
+                            <div class="f-icon" style="color: #38bdf8;">🔍</div>
+                            <div class="f-info">
+                                <div class="f-top">
+                                    <span class="f-name">Любопытство</span>
+                                    <span class="f-val">40</span>
+                                </div>
+                                <div class="f-bar-bg">
+                                    <div class="f-bar" style="width: 40%; background-color: #38bdf8;"></div>
+                                </div>
+                            </div>
+                            <div class="f-trend">=</div>
+                        </div>
+                        <!-- F3 -->
+                        <div class="feeling-item">
+                            <div class="f-icon" style="color: #f87171;">⚡️</div>
+                            <div class="f-info">
+                                <div class="f-top">
+                                    <span class="f-name">Тревога</span>
+                                    <span class="f-val">30</span>
+                                </div>
+                                <div class="f-bar-bg">
+                                    <div class="f-bar" style="width: 30%; background-color: #f87171;"></div>
+                                </div>
+                            </div>
+                            <div class="f-trend">=</div>
+                        </div>
+                        <!-- F4 -->
+                        <div class="feeling-item">
+                            <div class="f-icon" style="color: #f472b6;">💗</div>
+                            <div class="f-info">
+                                <div class="f-top">
+                                    <span class="f-name">Симпатия</span>
+                                    <span class="f-val">20</span>
+                                </div>
+                                <div class="f-bar-bg">
+                                    <div class="f-bar" style="width: 20%; background-color: #f472b6;"></div>
+                                </div>
+                            </div>
+                            <div class="f-trend">=</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="matrix-stats-row">
+                <div class="stat-pill">прогресс: <b>5%</b></div>
+                <div class="stat-pill">тренд: <b>стабильный</b></div>
+                <div class="stat-pill">slowburn: <b>1%</b></div>
+            </div>
+
+            <div class="fawn-thought-box matrix-thought">
+                <span class="label">мысль:</span>
+                <p class="text">Его биоритмы стабилизируются быстрее, чем ожидалось. Структура его тела... необычная. Слишком идеальная для простого путешественника. Нужно следить за тем, как его энергия взаимодействует с барьером.</p>
+            </div>
+
+            <div class="missions-list">
+                <div class="mission-item">
+                    <span class="m-id">M1</span>
+                    <span class="m-icon">⭐️</span>
+                    <span class="m-name">Спасение из леса</span>
+                </div>
+            </div>
+
+            <div class="locked-stats">
+                <div class="locked-item">
+                    <span class="l-id">S1</span>
+                    <span class="l-name">Индекс Одержимости</span>
+                    <span class="l-val">0</span>
+                    <span class="l-status">заблокировано</span>
+                </div>
+                <div class="locked-item">
+                    <span class="l-id">S2</span>
+                    <span class="l-name">Эмоциональная Нестабильность</span>
+                    <span class="l-val">10</span>
+                    <span class="l-status">заблокировано</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: FAWN'S WHISPER -->
+        <div class="fawn-section" id="fawn-whisper">
+            <h4 class="fawn-section-title">Shepot Favna (Fawn's Whisper)</h4>
+            <div class="whisper-grid">
+                <div class="whisper-block">
+                    <span class="w-label">Статус:</span>
+                    <p class="w-text">Выздоровление идет медленно, но верно.</p>
+                </div>
+                <div class="whisper-block">
+                    <span class="w-label">Настроение:</span>
+                    <p class="w-text">Заботливое, терпеливое.</p>
+                </div>
+                <div class="whisper-block full-width">
+                    <span class="w-label">Мысли:</span>
+                    <p class="w-text">Он такой бледный... и такой красивый, даже в таком состоянии. Надеюсь, магия не оставит шрамов на этом лице.</p>
+                </div>
+                <div class="whisper-block full-width advice">
+                    <span class="w-label">Совет:</span>
+                    <p class="w-text">Не делай резких движений, Химмель. Твое тело все еще помнит зубы теней. Пей отвар и позволь ей позаботиться о тебе.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

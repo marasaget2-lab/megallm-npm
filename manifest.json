@@ -1,0 +1,11 @@
+{
+    "display_name": "Fawn Tracker",
+    "name": "fawn-tracker",
+    "version": "1.1.0",
+    "author": "MegaLLM",
+    "description": "Tracks character status, matrix relationships, and fawn whispers.",
+    "loading_order": 1,
+    "requires": [],
+    "js": "index.js",
+    "css": "style.css"
+}
